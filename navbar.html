@@ -1,0 +1,204 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Responsive Navbar with Hamburger</title>
+    <style>
+        /* CSS Variables */
+        :root {
+            --primary-color: #333;
+            --text-color: white;
+            --accent-color: #f8c146;
+            --hover-color: #f8c146;
+            --shadow-color: rgba(0, 0, 0, 0.2);
+            --border-color: #444;
+            --transition-speed: 0.3s;
+            --menu-width: 250px;
+            --hamburger-line-height: 3px;
+        }
+        
+        /* Reset and base styles */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: Arial, sans-serif;
+            line-height: 1.6;
+        }
+        
+        /* Navbar styles */
+        .navbar {
+            background-color: var(--primary-color);
+            padding: 1rem;
+            color: var(--text-color);
+            position: relative;
+        }
+        
+        .navbar-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        
+        .logo {
+            font-size: 1.5rem;
+            font-weight: bold;
+        }
+        
+        .menu {
+            list-style: none;
+            display: flex;
+            transition: all var(--transition-speed) ease;
+        }
+        
+        .menu li {
+            margin-left: 1.5rem;
+        }
+        
+        .menu a {
+            color: var(--text-color);
+            text-decoration: none;
+            font-size: 1rem;
+            transition: color var(--transition-speed) ease;
+        }
+        
+        .menu a:hover {
+            color: var(--hover-color);
+        }
+        
+        /* Hamburger menu */
+        .hamburger {
+            display: none;
+            cursor: pointer;
+            background: none;
+            border: none;
+            width: 30px;
+            height: 20px;
+            position: relative;
+        }
+        
+        .hamburger span {
+            display: block;
+            position: absolute;
+            height: var(--hamburger-line-height);
+            width: 100%;
+            background: var(--text-color);
+            border-radius: 3px;
+            transition: all var(--transition-speed) ease;
+        }
+        
+        .hamburger span:nth-child(1) {
+            top: 0;
+        }
+        
+        .hamburger span:nth-child(2) {
+            top: 8px;
+        }
+        
+        .hamburger span:nth-child(3) {
+            top: 16px;
+        }
+        
+        /* Hamburger animation */
+        .hamburger.active span:nth-child(1) {
+            transform: rotate(45deg);
+            top: 8px;
+        }
+        
+        .hamburger.active span:nth-child(2) {
+            opacity: 0;
+        }
+        
+        .hamburger.active span:nth-child(3) {
+            transform: rotate(-45deg);
+            top: 8px;
+        }
+        
+        /* Responsive styles */
+        @media (max-width: 768px) {
+            .hamburger {
+                display: block;
+                z-index: 100;
+            }
+            
+            .menu {
+                position: fixed;
+                flex-direction: column;
+                background-color: var(--primary-color);
+                top: 0;
+                right: -100%;
+                width: var(--menu-width);
+                height: 100vh;
+                padding-top: 70px;
+                transition: right var(--transition-speed) ease;
+                box-shadow: -2px 0 5px var(--shadow-color);
+                z-index: 99;
+            }
+            
+            .menu.active {
+                right: 0;
+            }
+            
+            .menu li {
+                margin: 0;
+                padding: 15px 25px;
+                width: 100%;
+                border-bottom: 1px solid var(--border-color);
+            }
+        }
+    </style>
+</head>
+<body>
+    <nav class="navbar">
+        <div class="navbar-container">
+            <div class="logo">Your Logo</div>
+            <button class="hamburger">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+            <ul class="menu">
+                <li><a href="#">Home</a></li>
+                <li><a href="#">About</a></li>
+                <li><a href="#">Services</a></li>
+                <li><a href="#">Portfolio</a></li>
+                <li><a href="#">Contact</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <script>
+        // Toggle hamburger menu
+        const hamburger = document.querySelector('.hamburger');
+        const menu = document.querySelector('.menu');
+        
+        hamburger.addEventListener('click', () => {
+            hamburger.classList.toggle('active');
+            menu.classList.toggle('active');
+        });
+        
+        // Close menu when clicking outside
+        document.addEventListener('click', (event) => {
+            if (!hamburger.contains(event.target) && !menu.contains(event.target)) {
+                hamburger.classList.remove('active');
+                menu.classList.remove('active');
+            }
+        });
+        
+        // Close menu when clicking a link (for single page applications)
+        const menuLinks = document.querySelectorAll('.menu a');
+        menuLinks.forEach(link => {
+            link.addEventListener('click', () => {
+                hamburger.classList.remove('active');
+                menu.classList.remove('active');
+            });
+        });
+    </script>
+</body>
+</html>

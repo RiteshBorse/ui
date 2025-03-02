@@ -1,0 +1,328 @@
+:root {
+    --primary-color: indigo;
+    --secondary-color: #6c757d;
+    --background-color: #f8f9fa;
+    --text-color: white;
+}
+.btn {
+    background-color: var(--primary-color);
+    color: var(--text-color);
+    border: 1.5px solid var(--primary-color);
+    padding: 10px 20px;
+    border-radius: 8px;
+    cursor: pointer;
+    font-size: 16px;
+    font-weight: 600;
+    transition: all 0.3s ease;
+}
+
+.btn:hover {
+    opacity: 0.8;
+    background-color: var(--text-color);
+    color: var(--primary-color);
+    border: 1.5px solid var(--primary-color);
+}
+
+.btn-outline {
+    background-color: transparent;
+    border: 1px solid var(--primary-color);
+    color: var(--primary-color);
+    padding: 10px 20px;
+    border-radius: 8px;
+    cursor: pointer;
+    font-size: 16px;
+    font-weight: 600;
+    transition: all 0.3s ease;
+}
+
+.btn-outline:hover {
+    background-color: var(--primary-color);
+    color: var(--text-color);
+    border: 1.5px solid var(--primary-color);
+}
+
+input{
+    border: 1px solid var(--primary-color);
+    color: var(--primary-color);
+    padding: 10px 20px;
+    border-radius: 8px;
+    cursor: pointer;
+    font-size: 16px;
+    font-weight: 500;
+    transition: all 0.3s ease;
+    
+}
+::placeholder{
+    color: var(--primary-color);
+    opacity: 0.5;
+    font-weight: 400;
+}
+input:focus{
+    border: 1.5px solid var(--primary-color);
+    outline: none;
+}
+
+/* Toast container */
+.toast-container {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    z-index: 1000;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+/* Toast message */
+.toast {
+    min-width: 250px;
+    max-width: 350px;
+    padding: 16px;
+    border-radius: 6px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    animation: slide-in-right 0.3s ease-out forwards;
+    background-color: #ffffff;
+    border-left: 4px solid #333;
+}
+.toast.success {
+    border-left-color: #28a745;
+}
+.toast.error {
+    border-left-color: #dc3545;
+}  
+.toast.warning {
+    border-left-color: #ffc107;
+}
+.toast.info {
+    border-left-color: #17a2b8;
+}
+.toast-content {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+} 
+.toast-icon {
+    width: 24px;
+    height: 24px;
+    flex-shrink: 0;
+}    
+.toast-message {
+    font-size: 14px;
+    color: #333;
+}
+.toast-close {
+    background: none;
+    border: none;
+    cursor: pointer;
+    color: #999;
+    font-size: 16px;
+    line-height: 1;
+    padding: 4px;
+}
+.toast-close:hover {
+    color: #333;
+}
+@keyframes slide-in-right {
+    from {
+        transform: translateX(100%);
+        opacity: 0;
+    }
+    to {
+        transform: translateX(0);
+        opacity: 1;
+    }
+}
+@keyframes fade-out {
+    from {
+        transform: translateX(0);
+        opacity: 1;
+    }
+    to {
+        transform: translateX(10%);
+        opacity: 0;
+    }
+}
+.toast.hiding {
+    animation: fade-out 0.3s ease-out forwards;
+}
+
+
+/* Footer */
+ /* Footer styles */
+ .footer {
+    background-color: #222;
+    color: #fff;
+    padding: 3rem 0;
+}
+
+.container {
+    width: 90%;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.footer-content {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    gap: 2rem;
+}
+
+/* Company info section */
+.footer-company {
+    flex: 1;
+    min-width: 250px;
+}
+
+.footer-logo {
+    margin-bottom: 1rem;
+}
+
+.footer-logo h2 {
+    font-size: 1.8rem;
+    color: #fff;
+}
+
+.footer-company p {
+    color: #ccc;
+    margin-bottom: 1.5rem;
+    font-size: 0.95rem;
+}
+
+/* Footer links sections */
+.footer-links {
+    flex: 1;
+    min-width: 160px;
+}
+
+.footer-links h3 {
+    font-size: 1.2rem;
+    margin-bottom: 1.2rem;
+    color: #fff;
+    position: relative;
+    padding-bottom: 0.5rem;
+}
+
+.footer-links h3::after {
+    content: '';
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    width: 30px;
+    height: 2px;
+    background-color: #4CAF50;
+}
+
+.footer-links ul {
+    list-style: none;
+}
+
+.footer-links ul li {
+    margin-bottom: 0.7rem;
+}
+
+.footer-links ul li a {
+    color: #ccc;
+    text-decoration: none;
+    transition: color 0.3s ease;
+}
+
+.footer-links ul li a:hover {
+    color: #4CAF50;
+}
+
+/* Newsletter section */
+.footer-newsletter {
+    flex: 2;
+    min-width: 250px;
+}
+
+.newsletter-form {
+    display: flex;
+    margin-top: 1rem;
+}
+
+.newsletter-form input {
+    flex: 1;
+    padding: 0.8rem;
+    border: none;
+    outline: none;
+    font-size: 0.9rem;
+}
+
+.newsletter-form button {
+    background-color: #4CAF50;
+    color: white;
+    border: none;
+    padding: 0 1.2rem;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+.newsletter-form button:hover {
+    background-color: #388E3C;
+}
+
+/* Social media links */
+.social-links {
+    display: flex;
+    gap: 1rem;
+    margin-top: 1.5rem;
+}
+
+.social-links a {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 36px;
+    height: 36px;
+    background-color: #333;
+    border-radius: 50%;
+    color: #fff;
+    text-decoration: none;
+    transition: background-color 0.3s;
+}
+
+.social-links a:hover {
+    background-color: #4CAF50;
+}
+
+/* Footer bottom */
+.footer-bottom {
+    margin-top: 3rem;
+    padding-top: 1.5rem;
+    border-top: 1px solid #444;
+    text-align: center;
+    font-size: 0.9rem;
+    color: #aaa;
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+    .footer-content {
+        flex-direction: column;
+        gap: 2.5rem;
+    }
+    
+    .footer-company, .footer-links, .footer-newsletter {
+        min-width: 100%;
+    }
+}
+
+.backdrop-blur {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(52, 152, 219, 0.4); /* Light blue background */
+    backdrop-filter: blur(8px); /* Blur effect */
+    -webkit-backdrop-filter: blur(8px); /* For Safari */
+    z-index: 1000;
+    display: none;
+}
+
+
