@@ -318,11 +318,33 @@ input:focus{
     left: 0;
     width: 100%;
     height: 100%;
-    background-color: rgba(52, 152, 219, 0.4); /* Light blue background */
+    background-color: rgba(0, 0, 0, 0.1); /* Light blue background */
     backdrop-filter: blur(8px); /* Blur effect */
     -webkit-backdrop-filter: blur(8px); /* For Safari */
     z-index: 1000;
     display: none;
 }
-
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+.bg {
+    background-image: url('./background.jpg');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    height: 100vh;
+    width: 100%;  
+}
+.form{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: fit-content;
+    width: fit-content;
+    padding: 50px;
+}
 
